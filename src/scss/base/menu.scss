@@ -10,9 +10,11 @@
 			height: 100%;
 			left: -100%;
 			top: 0;
+            opacity: 0.6;
+            scale: 0.5;
 			overflow: auto;
 			padding: toRem(50) toRem(15) toRem(15) toRem(30);
-			transition: left 0.3s;
+			transition: all 0.5s ease 0s;
 			&::before {
 				content: "";
 				position: fixed;
@@ -25,6 +27,8 @@
 			}
 			.menu-open & {
 				left: 0;
+                scale: 1;
+                opacity: 1;
 				&::before {
 					left: 0;
 				}

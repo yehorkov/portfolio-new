@@ -1,70 +1,41 @@
 //====================================================================================================
 .greet-page {
-    @include adaptiveValue("padding-top", 180, 80);
-    @include adaptiveValue("padding-bottom", 180, 80);
-    height: 100vh;
-    position: relative;
-    background: linear-gradient(#111425, #3751e0);
+    @include adaptiveValue("padding-top", 120, 80);
+    @include adaptiveValue("padding-bottom", 80, 40);
+    min-height: 100vh;
     display: flex;
     justify-content:center;
     align-items: center;
+    flex-direction: column;
     // .greet-page__container
     &__container {}
     // .greet-page__body
     &__body {}
 }
 .body-greet-page {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
     // .body-greet-page__wrapper
     &__wrapper {
-        position: relative;
-        z-index: 4;
-        border: 1px solid black;
-        @include adaptiveValue("padding", 60, 40);
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        opacity: 0;
-        transform: scale(0.6);
-        @include adaptiveValue("gap", 60, 30);
-        background-color: rgba(0, 15, 108, 0.7);
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.87 );
-        border-radius: toRem(150) toRem(30) toRem(150) toRem(30);
-        @include adaptiveValue("border-top-left-radius", 150, 15);
-        @include adaptiveValue("border-top-right-radius", 30, 5);
-        @include adaptiveValue("border-bottom-right-radius", 150, 15);
-        @include adaptiveValue("border-bottom-left-radius", 30, 5);
-        &.visible {
-            opacity: 1;
-            transform: scale(1);
-            transition: all 0.5s ease 0s;
-        }
     }
     // .body-greet-page__title
     &__title {
-        display: block;
-        position: relative;
-        z-index: 10;
-        color: #f7eeee;
-        @include adaptiveValue("font-size", 48, 25);
-        text-align: center;
-        font-weight: 700;
         opacity: 0;
         &.visible {
             opacity: 1;
-            transition: opacity 2s ease 0s;
+            transition: opacity 2s ease 0.3s;
         }
     }
     // .body-greet-page__text
     &__text {
-        @include adaptiveValue("font-size", 30, 16);
-        line-height: math.div(40, 30);
         max-width: percent(800, 600);
-        text-align: center;
-        color:#f7eeee;
         opacity: 0;
         &.visible {
             opacity: 1;
-            transition: opacity 2s ease 0.5s;
+            transition: opacity 2s ease 0.8s;
         }
     }
     // .body-greet-page__list
@@ -89,3 +60,58 @@
     }
 }
 //====================================================================================================
+.about-page {
+    @include adaptiveValue("padding-top", 180, 80);
+    @include adaptiveValue("padding-bottom", 180, 80);
+    position: relative;
+    // .about-page__container
+    &__container {}
+    // .about-page__body
+    &__body {}
+    // .about-page__title
+    &__title {}
+    // .about-page__text
+    &__text {}
+    // .about-page__stack
+    &__stack {}
+}
+.stack-about {
+    @include adaptiveValue("padding-top", 80, 40);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: toRem(20);
+    @media (max-width:$mobile) {
+        flex-wrap: wrap;
+    }
+    // .stack-about__item
+    &__item {
+        padding: toRem(20) toRem(15);
+        border: 1px solid black;
+        @include adaptiveValue("max-width", 320, 290);
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+    }
+    // .stack-about__image
+    &__image {
+        img {
+            @include adaptiveValue("width", 100, 70);
+            @include adaptiveValue("height", 100, 70);
+        }
+    }
+    // .stack-about__title
+    &__title {
+        color: #fff;
+        font-size: toRem(24);
+        line-height: math.div(40, 24);
+    }
+    // .stack-about__text
+    &__text {
+        text-align: center;
+        color: #fff;
+        font-size: toRem(18);
+        line-height: math.div(30, 18);
+    }
+}

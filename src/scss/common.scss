@@ -2,6 +2,8 @@
 .page {
     // .page__greet
     &__greet {}
+    // .page__about
+    &__about {}
 }
 
 //====================================================================================================
@@ -20,106 +22,178 @@ i {
         }
         100% {
             opacity: 0;
-            transform: translateY(-100px);
+            transform: translateY(100px);
         }
     }
 }
 //====================================================================================================
-.cloud {
-    &-1 {
-        position: absolute;
-        max-width: 600px;
-        top: percent(40, 1170);
-        right: percent(0, 1170);
-        z-index: 3;
-        @media (max-width:$tablet) {
-            animation: animateClouds 50s linear infinite;
+.clouds {
+    z-index: 1;
+    .cloud {
+        &-1 {
+            position: absolute;
+            max-width: 600px;
+            top: percent(40, 1170);
+            right: percent(0, 1170);
+            z-index: 3;
+            @media (max-width:$tablet) {
+                top: toRem(40);
+                left: 0;
+                animation: animateClouds 50s linear infinite;
+            }
+        }
+        &-2 {
+            position: absolute;
+            max-width: 600px;
+            top: percent(200, 1170);
+            left: 0;
+            z-index: 3;
+            @media (max-width:$tablet) {
+                top: toRem(200);
+                left: 0;
+                animation: animateClouds 35s linear infinite;
+            }
+        }
+        &-3 {
+            position: absolute;
+            max-width: 600px;
+            top: percent(600, 1170);
+            left: percent(400, 1170);
+            z-index: 3;
+            @media (max-width:$tablet) {
+                top: 0;
+                left: 0;
+                animation: animateClouds 80s linear infinite;
+            }
+        }
+        &-4 {
+            position: absolute;
+            max-width: 200px;
+            right: percent(200, 1170);
+            bottom: 0;
+            z-index: 3;
+            animation-delay: -20s;
+            @media (max-width:$tablet) {
+                left: 0;
+                top: toRem(200);
+                animation: animateClouds 70s linear infinite;
+            }
+        }
+        &-5 {
+            position: absolute;
+            max-width: 500px;
+            top: percent(15, 1170);
+            left: 0;
+            z-index: 3;
+            animation-delay: -5s;
+            @media (max-width:$tablet) {
+                top: toRem(15);
+                left: 0;
+                animation: animateClouds 40s linear infinite;
+            }
+        }
+        &-6 {
+            position: absolute;
+            max-width: 400px;
+            top: percent(550, 1170);
+            left: 0;
+            z-index: 3;
+            animation-delay: -10s;
+            @media (max-width:$tablet) {
+                top: toRem(75);
+                left: 0;
+                animation: animateClouds 50s linear infinite;
+            }
+        }
+        &-7 {
+            position: absolute;
+            max-width: 400px;
+            top: percent(40, 1170);
+            left: percent(600, 1170);
+            z-index: 3;
+            animation-delay: -10s;
+            @media (max-width:$tablet) {
+                left: 0;
+                top: toRem(40);
+                animation: animateClouds 60s linear infinite;
+            }
+        }
+        &-8 {
+            position: absolute;
+            max-width: 400px;
+            top: percent(600, 1170);
+            right: percent(60, 1170);
+            z-index: 3;
+            animation-delay: -10s;
+            @media (max-width:$tablet) {
+                left: 0;
+                top: toRem(600);
+                animation: animateClouds 20s linear infinite;
+            }
+        }
+        &-9 {
+            position: absolute;
+            max-width: 400px;
+            top: percent(50, 1170);
+            left: percent(400, 1170);
+            z-index: 3;
+            animation-delay: -10s;
+            scale: 0.9;
+            @media (max-width:$tablet) {
+                left: 0;
+                top: toRem(600);
+                animation: animateClouds 45s linear infinite;
+            }
+        }
+        @keyframes animateClouds {
+            0% {
+                opacity: 0.7;
+                transform: translateX(-100%) scale(1);
+            }
+            100% {
+                transform: translateX(200%) scale(1.5);
+                opacity: 0;
+            }
         }
     }
-    &-2 {
-        position: absolute;
-        max-width: 600px;
-        top: percent(200, 1170);
-        left: 0;
+}
+//====================================================================================================
+.body-border {
+    position: relative;
+    border: 1px solid black;
+    background-color: rgba(0, 15, 108, 0.7);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.87 );
+    @include adaptiveValue("padding", 60, 40);
+    @include adaptiveValue("border-top-left-radius", 150, 15);
+    @include adaptiveValue("border-top-right-radius", 30, 5);
+    @include adaptiveValue("border-bottom-right-radius", 150, 15);
+    @include adaptiveValue("border-bottom-left-radius", 30, 5);
+    opacity: 0;
+    transform: scale(0.6);
+    &.visible {
+        opacity: 1;
+        transform: scale(1);
+        transition: all 0.7s ease 0s;
         z-index: 3;
-        @media (max-width:$tablet) {
-            animation: animateClouds 35s linear infinite;
-        }
     }
-    &-3 {
-        position: absolute;
-        max-width: 600px;
-        top: percent(600, 1170);
-        left: percent(400, 1170);
-        z-index: 3;
-        @media (max-width:$tablet) {
-            animation: animateClouds 80s linear infinite;
-        }
-    }
-    &-4 {
-        position: absolute;
-        max-width: 200px;
-        right: percent(200, 1170);
-        bottom: 0;
-        z-index: 3;
-        animation-delay: -20s;
-        @media (max-width:$tablet) {
-            animation: animateClouds 70s linear infinite;
-        }
-    }
-    &-5 {
-        position: absolute;
-        max-width: 500px;
-        top: percent(15, 1170);
-        left: 0;
-        z-index: 3;
-        animation-delay: -5s;
-        @media (max-width:$tablet) {
-            animation: animateClouds 40s linear infinite;
-        }
-    }
-    &-6 {
-        position: absolute;
-        max-width: 400px;
-        top: percent(550, 1170);
-        left: 0;
-        z-index: 3;
-        animation-delay: -10s;
-        @media (max-width:$tablet) {
-            animation: animateClouds 50s linear infinite;
-        }
-    }
-    &-7 {
-        position: absolute;
-        max-width: 400px;
-        top: percent(40, 1170);
-        left: percent(600, 1170);
-        z-index: 3;
-        animation-delay: -10s;
-        @media (max-width:$tablet) {
-            animation: animateClouds 60s linear infinite;
-        }
-    }
-    &-8 {
-        position: absolute;
-        max-width: 400px;
-        top: percent(600, 1170);
-        right: percent(60, 1170);
-        z-index: 3;
-        animation-delay: -10s;
-        @media (max-width:$tablet) {
-            animation: animateClouds 20s linear infinite;
-        }
-    }
-    @keyframes animateClouds {
-        0% {
-            transform: translateX(-100%) scale(1);
-        }
-        100% {
-            transform: translateX(500%) scale(1.5);
-            opacity: 0;
-        }
+    &__reverse {
+        @include adaptiveValue("border-top-left-radius", 35, 5);
+        @include adaptiveValue("border-top-right-radius", 150, 15);
+        @include adaptiveValue("border-bottom-right-radius", 30, 5);
+        @include adaptiveValue("border-bottom-left-radius", 150, 15);
     }
 }
 
-//====================================================================================================
+.title {
+    color: #f7eeee;
+    @include adaptiveValue("font-size", 48, 25);
+    text-align: center;
+    font-weight: 700;
+    @include adaptiveValue("margin-bottom", 50, 20);
+}
+.text {
+    text-align: center;
+    color:#f7eeee;
+    @include adaptiveValue("font-size", 30, 16);
+    line-height: math.div(40, 30);
+}
