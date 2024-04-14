@@ -29,6 +29,9 @@ i {
 //====================================================================================================
 .clouds {
     z-index: 1;
+    @media (max-width:$tablet) {
+        display: none;
+    }
     .cloud {
         &-1 {
             position: absolute;

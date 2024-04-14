@@ -18,7 +18,7 @@
         }
         }
         .header__body {
-            min-height: toRem(50);
+            @include adaptiveValue("min-height", 65, 50);
             @media (min-width:$tablet) {
                 min-height: toRem(70);
             }
